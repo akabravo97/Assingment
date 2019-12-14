@@ -28,12 +28,12 @@ public class CompartmentHopsCount {
             return 0;
         if (jetpackVal[currentCompartment] == 0)
             return Integer.MAX_VALUE;
-        int min = Integer.MAX_VALUE;
+        int currentMin = Integer.MAX_VALUE;
         for (int i = currentCompartment + 1; i <= thesisCompartment && i <= currentCompartment + jetpackVal[currentCompartment]; i++) {
             int hops = computeHops(jetpackVal, i, thesisCompartment);
-            if (hops != Integer.MAX_VALUE && hops + 1 < min)
-                min = hops + 1;
+            if (hops != Integer.MAX_VALUE && hops + 1 < currentMin)
+                currentMin = hops + 1;
         }
-        return min;
+        return currentMin;
     }
 }
